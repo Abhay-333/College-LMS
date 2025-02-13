@@ -7,8 +7,15 @@ const LoginPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if(erpId.trim === "" || erpId.trim === ""){
+      alert("Please Enter Valid information")
+    }
+
     console.log("Role:", role, "ERP ID:", erpId, "Password:", password);
   };
+
+
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -36,6 +43,7 @@ const LoginPage = () => {
               className="w-full p-2 border rounded mt-1"
               placeholder="Enter your ERP ID"
               required
+              pattern="^\d+$"
             />
           </div>
           <div className="mb-4">

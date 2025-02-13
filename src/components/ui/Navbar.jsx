@@ -7,9 +7,9 @@ const Navbar = () => {
   const [activePath, setActivePath] = useState(window.location.pathname);
 
   const navItems = [
-    { name: "Resources", href: "/resources", icon: Book },
-    { name: "Practice", href: "/practice", icon: Code },
-    { name: "Contact", href: "/contact", icon: Mail },
+    { name: "Resources", href: "resources", icon: Book },
+    { name: "Practice", href: "practice", icon: Code },
+    { name: "Contact", href: "contact", icon: Mail },
   ];
 
   return (
@@ -17,7 +17,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <Link to="/" className="text-xl font-bold">
+            <Link to="/home" className="text-xl font-bold">
               Learning Platform
             </Link>
           </div>

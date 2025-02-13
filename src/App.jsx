@@ -1,27 +1,21 @@
-import { useState } from "react";
-import "./App.css";
-import Navbar from "./components/ui/Navbar";
 import { Routes, Route } from "react-router-dom";
 import LoginPage from "./components/ui/LoginPage";
 import Home from "./components/ui/Home";
 import Resources from "./components/ui/Resources";
-import Contact from "./components/ui/Contact";
+import Practice from "./components/ui/Practice";
+import Contact from "./components/ui/Contact"; 
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      
-
-      <Routes>
-        <Route path="/" element={<LoginPage />}></Route>
-        <Route path="/" element={<LoginPage />}></Route>
-        <Route path="/home" element={<Home />}></Route>
-        <Route path="/resoures" element={<Resources />}></Route>
-        <Route path="/contact" element={<Contact />}></Route>
-      </Routes>
-    </>
+    <Routes>
+      <Route path="/" element={<LoginPage />} />
+      <Route path="/home" element={<Home />}>
+        <Route path="resources" element={<Resources />} />
+        <Route path="practice" element={<Practice />} />
+        <Route path="contact" element={<Contact />} />
+      </Route>
+    </Routes>
   );
 }
 
