@@ -1,17 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { Button } from "./components/ui/button"
+import { useState } from "react";
+import "./App.css";
+import Navbar from "./components/ui/Navbar";
+import { Routes, Route } from "react-router-dom";
+import LoginPage from "./components/ui/LoginPage";
+import Home from "./components/ui/Home";
+import Resources from "./components/ui/Resources";
+import Contact from "./components/ui/Contact";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
-      <Button>Click Here</Button>
+      
+
+      <Routes>
+        <Route path="/" element={<LoginPage />}></Route>
+        <Route path="/" element={<LoginPage />}></Route>
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="/resoures" element={<Resources />}></Route>
+        <Route path="/contact" element={<Contact />}></Route>
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
