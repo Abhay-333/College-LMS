@@ -13,6 +13,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'GilroyLight';
+  /* cursor: none; */
 }
 
 html,
@@ -27,14 +28,15 @@ body {
 
 .heroText{
   position: relative;
-  top: 50%;
+  /* top: 50%;
   left: 50%;
-  transform: translate(-65%, -300%);    /* right left and top and bottom */
-  width: 80%;
+  transform: translate(-65%, -300%);    right left and top and bottom */
+  /* width: 80%; */
   color: transparent;
 }
 
 .heroText::after{
+  z-index: 99;
   content: "🚀 Empower Your Learning Journey";
   color: transparent;
   -webkit-text-stroke: 2px black;
@@ -42,6 +44,8 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50.1%, -46%);
+  /* mix-blend-mode: difference; */
   width: 100%;
+  color: white;
 }
 

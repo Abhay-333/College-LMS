@@ -7,9 +7,9 @@ const Navbar = () => {
   const [activePath, setActivePath] = useState(window.location.pathname);
 
   const navItems = [
-    { name: "Resources", href: "resources", icon: Book },
-    { name: "Practice", href: "practice", icon: Code },
-    { name: "Contact", href: "contact", icon: Mail },
+    { name: "Resources", href: "/resources", icon: Book },
+    { name: "Practice", href: "/practice", icon: Code },
+    { name: "Contact", href: "/contact", icon: Mail },
   ];
 
   return (
