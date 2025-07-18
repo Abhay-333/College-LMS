@@ -5,8 +5,8 @@ const Home = () => {
   const cursorRef = useRef();
 
   const moveCursor = (e) => {
-    const xCoordinates = e.clientX - 690; 
-    const yCoordinates = e.clientY - 330;
+    const xCoordinates = e.clientX - 770; 
+    const yCoordinates = e.clientY - 370;
 
     gsap.to(cursorRef.current, {
       x: xCoordinates,
