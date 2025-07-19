@@ -15,7 +15,19 @@ function AppRoutes() {
         <Route path="/practice" element={<Practice />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/resources" element={<Resources />} />
-        <Route path="/resourceDetails" element={<ResourceDetails />} />
+        <Route path="/resourceDetails/:type" element={<ResourceDetails />} />
+
+        {/* Instead of making separate route for each category like /resourceDetails/yt, /resourceDetails/codingPlatforms, etc, i have made a single route and extracted the values using useParams Hook you can see it in ResourcesDetails Component, if you have any doubt please feel free to ask.
+
+        <Route path="/resourceDetails/codingPlatforms" element={<ResourceDetails />} />
+        <Route path="/resourceDetails/coursesPlatform" element={<ResourceDetails />} />
+        <Route path="/resourceDetails/projectBased" element={<ResourceDetails />} />
+        <Route path="/resourceDetails/practicePlatforms" element={<ResourceDetails />} />
+        <Route path="/resourceDetails/communities" element={<ResourceDetails />} />
+        <Route path="/resourceDetails/bootcamps" element={<ResourceDetails />} />
+        <Route path="/resourceDetails/aiAssist" element={<ResourceDetails />} />
+        <Route path="/resourceDetails/gamified" element={<ResourceDetails />} /> */}
+
       </Route>
     </Routes>
   );
