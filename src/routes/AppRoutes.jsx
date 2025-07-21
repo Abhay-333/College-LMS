@@ -1,3 +1,4 @@
+import SignIn from "../components/ui/SignIn";
 import Home from "../components/ui/Home";
 import Practice from "../components/ui/Practice";
 import ResourceDetails from "../components/ui/ResourceDetails";
@@ -6,6 +7,7 @@ import MainLayout from "../layouts/MainLayout";
 import { Contact } from "lucide-react";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import SignUp from "../components/ui/SignUp";
 
 function AppRoutes() {
   return (
@@ -16,6 +18,8 @@ function AppRoutes() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/resourceDetails/:type" element={<ResourceDetails />} />
+        <Route path="/signIn" element={<SignIn />} />
+        <Route path="/signUP" element={<SignUp />} />
 
         {/* Instead of making separate route for each category like /resourceDetails/yt, /resourceDetails/codingPlatforms, etc, i have made a single route and extracted the values using useParams Hook you can see it in ResourcesDetails Component, if you have any doubt please feel free to ask.
 
