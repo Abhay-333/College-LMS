@@ -1,9 +1,17 @@
-import React, { useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import gsap from "gsap";
+import { dataContext } from "../../Utils/UserContext";
 
 const Home = () => {
   const cursorRef = useRef();
-
+  const {userData,getUserData} = useContext(dataContext);
+  console.log(userData)
+  useEffect(()=>{
+    async function fetchData(){
+      await getUserData();
+    }
+    fetchData()
+  },[])
   const moveCursor = (e) => {
     const xCoordinates = e.clientX - 770; 
     const yCoordinates = e.clientY - 370;
@@ -38,13 +46,14 @@ const Home = () => {
       <div
         className="page1 h-[90.4vh] relative overflow-hidden"
         onMouseMove={moveCursor}
-      >
+      > {userData?.userName}
         <div className="heroSection flex flex-col h-full items-center justify-center text-center">
           <h1
             onMouseOver={enlargeCursor}
             onMouseLeave={resetCursor}
             className="heroText GilroyHeavy text-7xl font-light leading-none tracking-tight"
           >
+            
             🚀 Empower Your Learning Journey
           </h1>
 

@@ -1,11 +1,17 @@
-import React, { useState } from "react";
-import { Book, Code, Mail, Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Book, Code, LogOut, Mail, Menu, User, X } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { dataContext } from "../../Utils/UserContext";
+import axios from "axios";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activePath, setActivePath] = useState(window.location.pathname);
-
+  const { userData, serverUrl, setUserData } = useContext(dataContext);
+  if (userData) {
+    console.log("userlogin");
+  }
+  const navigation = useNavigate();
   const navItems = [
     { name: "Resources", href: "/resources", icon: Book },
     { name: "Practice", href: "/practice", icon: Code },
@@ -38,6 +44,45 @@ const Navbar = () => {
                   {item.name}
                 </Link>
               ))}
+              {userData ? (
+                <div
+                  onClick={async () => {
+                    await axios.post(
+                      serverUrl + "/logout",
+                      {},
+                      { withCredentials: true }
+                    );
+                    navigation("/signIn");
+                    setUserData(null);
+                  }}
+                  className="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                >
+                  <Link
+                    key={"SignIn"}
+                    to={"/signIn"}
+                    className={`px-3 py-2 rounded-md text-sm font-medium `}
+                  >
+                    Logout
+                    <LogOut className="inline-block w-4 h-4 ml-1" />
+                  </Link>
+                </div>
+              ) : (
+                <div>
+                  <Link
+                    key={"SignIn"}
+                    to={"/signIn"}
+                    className={`px-3 py-2 rounded-md text-sm font-medium ${
+                      activePath
+                        ? "bg-gray-900 text-white"
+                        : "text-gray-300 hover:bg-gray-700 hover:text-white"
+                    }`}
+                    onClick={() => setActivePath("/signIn")}
+                  >
+                    <User className="inline-block w-5 h-5 mr-1" />
+                    SignIn
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
           <div className="md:hidden">
