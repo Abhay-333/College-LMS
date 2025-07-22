@@ -13,9 +13,9 @@ function UserContext({ children }) {
       let { data } = await axios.get(serverUrl + "/getUser", {
         withCredentials: true,
       });
+      console.log(data);
       setUserData(data);
     } catch (err) {
-      console.log(err);
       navigation("/signIn");
     }
   };

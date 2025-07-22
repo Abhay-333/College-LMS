@@ -13,7 +13,6 @@ import ResourceDetails from "./ResourceDetails";
 
 const Cards = () => {
   const resourcesDetails = useContext(resourcesContext);
-  // console.log(resourcesDetails);
 
   return (
     <div className="flex flex-col items-center justify-center ">
@@ -30,9 +29,9 @@ const Cards = () => {
       <div className="flex w-full flex-wrap gap-5 items-center justify-center">
         {resourcesDetails.resources.map((item, index) => (
           // here i have passed the data or state of the current card or current element clicked such that if the user click on the yt card then it should pass the data of yt tutorials to the next component that is ResourcesDetails.jsx 
-          <Link key={index} to={item.reference} state={{item}}>
+          <Link key={index} to={item.reference} state={{ item }}>
             <Card
-              className="bg-zinc-800 text-slate-200 h-[27vh] w-[30vw] p-[1.5vw] shadow-2xl"
+              className="bg-zinc-800 text-slate-200 h-[27vh] w-[30vw] p-[15px] hover:scale-105 transition-all"
             >
               <CardTitle className="text-xl">{item.resourceTitle} </CardTitle>
               <CardDescription className="mt-2 text-slate-300 text-lg">
