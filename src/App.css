@@ -1,10 +1,10 @@
 @font-face {
-  font-family: 'GilroyHeavy';
+  font-family: "GilroyHeavy";
   src: url(./Resources/Gilroy-FREE/Gilroy-ExtraBold.otf);
 }
 
 @font-face {
-  font-family: 'GilroyLight';
+  font-family: "GilroyLight";
   src: url(./Resources/Gilroy-FREE/Gilroy-Light.otf);
 }
 
@@ -12,7 +12,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'GilroyLight';
+  font-family: "GilroyLight";
   /* cursor: none; */
 }
 
@@ -22,11 +22,11 @@ body {
   width: 100%;
 }
 
-.GilroyHeavy{
-  font-family: 'GilroyHeavy';
+.GilroyHeavy {
+  font-family: "GilroyHeavy";
 }
 
-.heroText{
+.heroText {
   position: relative;
   /* top: 50%;
   left: 50%;
@@ -35,7 +35,7 @@ body {
   color: transparent;
 }
 
-.heroText::after{
+.heroText::after {
   z-index: 99;
   content: "🚀 Empower Your Learning Journey";
   color: transparent;
@@ -48,4 +48,3 @@ body {
   width: 100%;
   color: white;
 }
-

@@ -4,16 +4,16 @@ import { dataContext } from "../../Utils/UserContext";
 
 const Home = () => {
   const cursorRef = useRef();
-  const {userData,getUserData} = useContext(dataContext);
-  console.log(userData)
-  useEffect(()=>{
-    async function fetchData(){
+  const { userData, getUserData } = useContext(dataContext);
+  console.log(userData);
+  useEffect(() => {
+    async function fetchData() {
       await getUserData();
     }
-    fetchData()
-  },[])
+    fetchData();
+  }, []);
   const moveCursor = (e) => {
-    const xCoordinates = e.clientX - 770; 
+    const xCoordinates = e.clientX - 770;
     const yCoordinates = e.clientY - 370;
 
     gsap.to(cursorRef.current, {
@@ -37,7 +37,7 @@ const Home = () => {
   };
 
   return (
-    <>      
+    <>
       <div
         ref={cursorRef}
         className="cursor pointer-events-none bg-black absolute origin-center z-[-9] top-1/2 left-1/2 h-[2vh] w-[0.95vw] rounded-full"
@@ -46,14 +46,36 @@ const Home = () => {
       <div
         className="page1 h-[90.4vh] relative overflow-hidden"
         onMouseMove={moveCursor}
-      > {userData?.userName}
-        <div className="heroSection flex flex-col h-full items-center justify-center text-center">
+      >
+        {/* <style>
+          {`
+        
+.heroText2::after{
+  z-index: 99;
+  content: "Hi,${userData?.userName}";
+  color:white;
+  -webkit-text-stroke: 2px black;
+  position: absolute;
+  top: 50%;
+  left: 49%;
+  transform: translate(-50.1%, -46%);
+  width: 100%;
+}`}
+        </style> */}
+        <div className="heroSection relative flex flex-col h-full items-center justify-center text-center">
+          <h1
+            onMouseOver={enlargeCursor}
+            onMouseLeave={resetCursor}
+            className="heroText2 relative text-white mix-blend-difference GilroyHeavy text-7xl font-light leading-none tracking-tight"
+          >
+            Hi, "{userData?.userName}",
+          </h1>
+
           <h1
             onMouseOver={enlargeCursor}
             onMouseLeave={resetCursor}
             className="heroText GilroyHeavy text-7xl font-light leading-none tracking-tight"
           >
-            
             🚀 Empower Your Learning Journey
           </h1>
 

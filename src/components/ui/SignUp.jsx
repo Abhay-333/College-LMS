@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { dataContext } from "../../Utils/UserContext";
+import CustomAlertDialog from "./CustomPopUp";
 import axios from "axios";
 
 const SignUp = () => {
@@ -10,9 +11,44 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const navigation = useNavigate();
   const { serverUrl, getUserData } = useContext(dataContext);
+  const [errorMsg, setErrorMsg] = useState("");
+  const [showPopUp, setShowPopUp] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const trimmedEmail = email.trim();
+    const trimmedUsername = userName.trim();
+    const trimmedPassword = password.trim();
+
+    // Regex patterns
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const usernameRegex = /^[a-zA-Z0-9_]{3,20}$/;
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{6,}$/;
+
+    // Validation checks
+    if (!trimmedEmail || !trimmedUsername || !trimmedPassword) {
+      setShowPopUp(true);
+      setErrorMsg("Please fill in all required fields");  
+      return;
+    }
+    
+    if (!emailRegex.test(trimmedEmail)) {
+      setShowPopUp(true);
+      setErrorMsg("Please Enter valid email address");
+      return;
+    }
+
+    if (!usernameRegex.test(trimmedUsername)) {
+      setShowPopUp(true);
+      setErrorMsg("Username must be 3-20 characters with letters, numbers, or underscores only");
+      return;
+    }
+
+    if (!passwordRegex.test(trimmedPassword)) {
+      setShowPopUp(true);
+      setErrorMsg("Password must be at least 6 characters with at least one letter and one number");
+      return;
+    }
 
     if (
       email.trim() === "" ||
@@ -29,7 +65,7 @@ const SignUp = () => {
       "Email:",
       email,
       "Username:",
-      username,
+      userName,
       "Password:",
       password
     );
@@ -49,7 +85,6 @@ const SignUp = () => {
             >
               <option value="faculty">Faculty</option>
               <option value="student">Student</option>
-              <option value="admin">Admin</option>
             </select>
           </div>
 
@@ -106,13 +141,18 @@ const SignUp = () => {
                   { withCredentials: true }
                 )
                 .then(async (e) => {
+                  navigation("/");
                   console.log(e);
                   await getUserData();
                 })
                 .catch((err) => {
+                  setShowPopUp(true);
+                  setErrorMsg(
+                    "" + err.response?.data?.message ||
+                      "Sign Up failed. Try again."
+                  );
                   console.log(err);
                 });
-              navigation("/");
             }}
           >
             Sign Up
@@ -131,6 +171,14 @@ const SignUp = () => {
           </span>
         </p>
       </div>
+      {showPopUp && (
+        <CustomAlertDialog
+          message={errorMsg}
+          onClose={() => {
+            setShowPopUp(false);
+          }}
+        />
+      )}
     </div>
   );
 };

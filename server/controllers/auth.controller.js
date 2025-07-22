@@ -32,7 +32,7 @@ export const signUp = async (req, res) => {
     res.cookie("token", token, {
       httponly: true,
       secure: process.env.NODE_ENVIRONMENT == "production",
-      samesite: "secure",
+      samesite: "strict",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
     res.status(201).send("User created successfully");
@@ -65,7 +65,7 @@ export const login = async (req, res) => {
     res.cookie("token", token, {
       httponly: true,
       secure: process.env.NODE_ENVIRONMENT == "production",
-      samesite: "secure",
+      samesite: "strict",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
     res.status(200).send("login successfull");
