@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { Book, Code, LogOut, Mail, Menu, User, X } from "lucide-react";
+import { useContext, useState } from "react";
+import { Book, Code, LogOut, Menu, User, X } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { dataContext } from "../../Utils/UserContext";
 import axios from "axios";
@@ -15,7 +15,6 @@ const Navbar = () => {
   const navItems = [
     { name: "Resources", href: "/resources", icon: Book },
     { name: "Practice", href: "/practice", icon: Code },
-    { name: "Contact", href: "/contact", icon: Mail },
   ];
 
   return (

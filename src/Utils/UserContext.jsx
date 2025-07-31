@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { createContext, useState } from "react";
+import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const dataContext = createContext();
@@ -16,6 +16,7 @@ function UserContext({ children }) {
       console.log(data);
       setUserData(data);
     } catch (err) {
+      console.log(err)
       navigation("/signIn");
     }
   };

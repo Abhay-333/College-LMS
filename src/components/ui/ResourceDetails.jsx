@@ -1,10 +1,6 @@
-import { useParams, useLocation } from "react-router-dom";
-import { resourcesContext } from "../../Utils/Context";
-import { React, useContext } from "react";
+import { useLocation } from "react-router-dom";
 
 const ResourceDetails = () => {
-  const { resources, setResources } = useContext(resourcesContext);
-  const { type } = useParams();
   const location = useLocation();
   const { item } = location.state || {};
   console.log(item);

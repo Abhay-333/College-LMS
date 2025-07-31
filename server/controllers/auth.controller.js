@@ -27,6 +27,7 @@ export const signUp = async (req, res) => {
     try {
       token = generateToken(user._id);
     } catch (err) {
+      console.log(err);
       return res.status(400).json({ message: "user id not found" });
     }
     res.cookie("token", token, {
@@ -60,6 +61,7 @@ export const login = async (req, res) => {
     try {
       token = generateToken(isUser._id);
     } catch (err) {
+      console.log(err);
       return res.status(400).json({ message: "user id not found" });
     }
     res.cookie("token", token, {
@@ -70,6 +72,7 @@ export const login = async (req, res) => {
     });
     res.status(200).send("login successfull");
   } catch (error) {
+    console.log(error);
     return res.status(500).json({ message: "Server side error" });
   }
 };
@@ -79,6 +82,7 @@ export const logout = async (req, res) => {
     res.clearCookie("token");
     return res.status(200).json({ message: "logout successfull" });
   } catch (err) {
+    console.log(err);
     return res.status(500).json({ message: "Server side error" });
   }
 };
@@ -95,6 +99,7 @@ export const getUserData = async (req, res) => {
     }
     return res.status(200).json(user);
   } catch (err) {
+    console.log(err);
     return res.status(500).json({ message: "Server side error" });
   }
 };

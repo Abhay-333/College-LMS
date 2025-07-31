@@ -1,8 +1,7 @@
-import { React, createContext, useState } from 'react'
-
+import { createContext, useState } from 'react'
 export const resourcesContext = createContext();
 
-const Context = (props) => {
+const Context = ({children}) => {
     const [resources, setResources] = useState([
         {
             resourceTitle: "YouTube Tutorials",
@@ -172,7 +171,7 @@ const Context = (props) => {
     ]);
     
     return (
-        <resourcesContext.Provider value={{ resources, setResources }} >{props.children}</resourcesContext.Provider>
+        <resourcesContext.Provider value={{ resources, setResources }} >{children}</resourcesContext.Provider>
     )
 }
 

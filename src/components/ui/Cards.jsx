@@ -1,15 +1,11 @@
-import { React, useContext } from "react";
+import { useContext } from "react";
 import {
   Card,
-  CardContent,
   CardDescription,
-  CardFooter,
-  CardHeader,
   CardTitle,
 } from "./card";
-import { Link, Links } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { resourcesContext } from "../../Utils/Context";
-import ResourceDetails from "./ResourceDetails";
 
 const Cards = () => {
   const resourcesDetails = useContext(resourcesContext);

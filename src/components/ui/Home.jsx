@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useRef } from "react";
+import  { useContext, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { dataContext } from "../../Utils/UserContext";
-import Navbar from "./Navbar";
 
 const Home = () => {
   const cursorRef = useRef();
@@ -12,7 +11,7 @@ const Home = () => {
       await getUserData();
     }
     fetchData();
-  }, []);
+  }, [getUserData]);
   const moveCursor = (e) => {
     const xCoordinates = e.clientX - 770;
     const yCoordinates = e.clientY - 370;
@@ -39,7 +38,6 @@ const Home = () => {
 
   return (
     <>
-          <Navbar />
     
       <div
         ref={cursorRef}
@@ -71,7 +69,7 @@ const Home = () => {
             onMouseLeave={resetCursor}
             className="heroText2 relative text-white mix-blend-difference GilroyHeavy text-7xl font-light leading-none tracking-tight"
           >
-            Hi, "{userData?.userName}",
+            Hi, &quot;{userData?.userName}&quot;,
           </h1>
 
           <h1

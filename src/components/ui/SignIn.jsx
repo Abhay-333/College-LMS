@@ -1,13 +1,13 @@
 import axios from "axios";
 import { dataContext } from "../../Utils/UserContext";
-import React, { useContext, useState } from "react";
-import { data, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import CustomPopUp from "./CustomPopUp";
 
 const SignIn = () => {
   const [userType, setUserType] = useState("student");
-  const [email, setEmail] = useState("abhay@gmail.com");
-  const [password, setPassword] = useState("1234");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigation = useNavigate();
   const { serverUrl, getUserData } = useContext(dataContext);
   const [errorMsg, setErrorMsg] = useState("");
