@@ -1,13 +1,4 @@
-import { Routes, Route } from "react-router-dom";
-import LoginPage from "./components/ui/SignIn";
-import Home from "./components/ui/Home";
-import Resources from "./components/ui/Resources";
-import Practice from "./components/ui/Practice";
-import Contact from "./components/ui/Contact";
 import "./App.css";
-import Navbar from "./components/ui/Navbar";
-import { Outlet } from "react-router-dom";
-import ResourceDetails from "./components/ui/ResourceDetails";
 import AppRoutes from "./routes/AppRoutes";
 
 function App() {

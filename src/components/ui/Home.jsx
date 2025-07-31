@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { dataContext } from "../../Utils/UserContext";
+import Navbar from "./Navbar";
 
 const Home = () => {
   const cursorRef = useRef();
@@ -38,6 +39,8 @@ const Home = () => {
 
   return (
     <>
+          <Navbar />
+    
       <div
         ref={cursorRef}
         className="cursor pointer-events-none bg-black absolute origin-center z-[-9] top-1/2 left-1/2 h-[2vh] w-[0.95vw] rounded-full"
