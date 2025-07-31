@@ -18,7 +18,7 @@ app.use(
   })
 );
 
-app.use("/api", authRouter);
+app.use("/", authRouter);
 
 app.listen(process.env.PORT || 6000, () => {
   dbConnection();
