@@ -7,7 +7,7 @@ export const dataContext = createContext();
 function UserContext({ children }) {
   const navigation = useNavigate();
   const serverUrl = process.env.NODE_ENV === 'production' 
-    ? "https://your-backend-url.onrender.com" 
+    ? "https://college-lms-1.onrender.com" 
     : "http://localhost:5000";
   const [userData, setUserData] = useState(null);
   const getUserData = async () => {
