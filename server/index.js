@@ -14,14 +14,14 @@ app.use(cookieParser());
 app.use(
   cors({
     origin: [
+      "https://college-lms-2.onrender.com",
       "http://localhost:5173", 
-      "https://college-lms-2.onrender.com"
     ],
     credentials: true,
   })
 );
 
-app.use("/", authRouter);
+app.use("/api", authRouter);
 
 app.listen(process.env.PORT || 5000, () => {
   dbConnection();
